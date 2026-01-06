@@ -1,0 +1,20 @@
+name: teste
+on: 
+  workflow_dispatch:
+    inputs:
+      nome:
+        description: 'Nome do usuário'
+        required: true
+        default: 'Guilherme'
+      idade: 
+        description: 'Idade do usuário'
+        required: true
+        default: 18
+jobs:
+  exemplo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exibir nome e idade
+        run: |
+          echo "Nome: ${{ github.event.inputs.nome }}"
+          echo "Idade: ${{ github.event.inputs.idade }}"
